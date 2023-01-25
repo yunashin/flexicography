@@ -23,6 +23,8 @@ const Body = () => {
     <div className="body">
       <div className="intro">
         Flex your lexicographical skills in this simple word game!
+      </div>
+      <div className="intro">
         Enter as many words as you can that contain the following letters in consecutive order:
       </div>
       {fetched ? <p className='three-gram'>{threeGram}</p> : <p>Generating a three letter combination...</p>}
