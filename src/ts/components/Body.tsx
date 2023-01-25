@@ -38,7 +38,7 @@ const Body = () => {
         autoFocus={true} 
         onChange={({target: {value}}) => {
           const foundWord = value.toLowerCase();
-          if (solutions.includes(value) && !foundWords.some(wordAndScore => wordAndScore.word === foundWord)) {
+          if (solutions.includes(foundWord) && !foundWords.some(wordAndScore => wordAndScore.word === foundWord)) {
             const { totalScore, wordScore } = generateScore(score, foundWord);
             setInput('');
             setWordCount(wordCount + 1);
