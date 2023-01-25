@@ -18,6 +18,19 @@
   color: white;
 }
 
+@media (max-width: 600px) {
+  .app-header {
+    background-color: var(--BACKGROUND);
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(20px + 2vmin);
+    font-family: 'Zapfino';
+    color: white;
+  }
+}
+
 .app-footer {
   padding-top: 80px;
   background-color: var(--BACKGROUND);
@@ -37,8 +50,27 @@
   color: white;
 }
 
+@media (max-width: 600px) {
+  .body {
+    background-color: var(--BACKGROUND);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(7px + 2vmin);
+  color: white;
+  }
+}
+
 .intro {
   width: 700px;
+}
+
+@media (max-width: 600px) {
+  .intro {
+    width: 300px;
+  }
 }
 
 .three-gram {
@@ -64,4 +96,10 @@
 
 .found-word {
   font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .found-word {
+    font-size: 12px;
+  }
 }
