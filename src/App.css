@@ -1,9 +1,14 @@
+:root {
+  --BACKGROUND: #50156d;
+  --COLUMBIA: #7fdef8;
+}
+
 .app {
   text-align: center;
 }
 
 .app-header {
-  background-color: #50156d;
+  background-color: var(--BACKGROUND);
   min-height: 40px;
   display: flex;
   flex-direction: column;
@@ -15,14 +20,14 @@
 
 .app-footer {
   padding-top: 80px;
-  background-color: #50156d;
+  background-color: var(--BACKGROUND);
   font-size: 16px;
   min-height: 10vh;
   color: white;
 }
 
 .body {
-  background-color: #50156d;
+  background-color: var(--BACKGROUND);
   min-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -32,13 +37,25 @@
   color: white;
 }
 
+.intro {
+  width: 700px;
+}
+
 .three-gram {
-  color: #7fdef8;
+  color: var(--COLUMBIA);
   font-size: calc(30px + 2vmin);
 }
 
 .flex {
   display: inline-flex;
+}
+
+.columbia {
+  color: var(--COLUMBIA);
+}
+
+.right-space {
+  margin-right: 5px;
 }
 
 .word-count {

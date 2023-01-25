@@ -18,7 +18,7 @@ export const DataReducer: Reducer<DataState, DataAction> = (
     case ADD_FOUND_WORD: {
       return {
         ...state,
-        foundWords: [...state.foundWords, { word: action.word, score: action.score }],
+        foundWords: [{ word: action.word, score: action.score }, ...state.foundWords],
       }
     }
     case SET_FETCHED: {

@@ -17,6 +17,6 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-  border: 4px solid lightblue;
+  border: 4px solid #7fdef8;
   border-radius: 4px;
 }
