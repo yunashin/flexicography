@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 4px;
+  outline: none;
+  font-size: x-large;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
+}
+
+input[type=text]:focus {
+  border: 4px solid lightblue;
+  border-radius: 4px;
+}
