@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/flexicography/static/css/main.a144df37.css",
-    "main.js": "/flexicography/static/js/main.c878171c.js",
+    "main.css": "/flexicography/static/css/main.ee8a1642.css",
+    "main.js": "/flexicography/static/js/main.60d9164a.js",
     "static/js/787.a3a7135a.chunk.js": "/flexicography/static/js/787.a3a7135a.chunk.js",
     "static/media/dictionary.txt": "/flexicography/static/media/dictionary.65b909974ccff6f4d841.txt",
     "index.html": "/flexicography/index.html",
-    "main.a144df37.css.map": "/flexicography/static/css/main.a144df37.css.map",
-    "main.c878171c.js.map": "/flexicography/static/js/main.c878171c.js.map",
+    "main.ee8a1642.css.map": "/flexicography/static/css/main.ee8a1642.css.map",
+    "main.60d9164a.js.map": "/flexicography/static/js/main.60d9164a.js.map",
     "787.a3a7135a.chunk.js.map": "/flexicography/static/js/787.a3a7135a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a144df37.css",
-    "static/js/main.c878171c.js"
+    "static/css/main.ee8a1642.css",
+    "static/js/main.60d9164a.js"
   ]
 }
