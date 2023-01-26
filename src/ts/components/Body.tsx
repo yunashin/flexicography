@@ -2,12 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 
 import { useDataContext } from "../context/DataContext";
 import { generateScore } from "../utils/generateScore";
+import { getTime } from "../utils/getTime";
 import FoundWords from "./FoundWords";
 import SolutionWords from "./SolutionWords";
 
 const Body = () => {
   const [input, setInput] = useState('');
   const [showFoundWords, setShowFoundWords] = useState(true);
+  const [showInstructions, setShowInstructions] = useState(false);
   const [isTimedMode, setIsTimedMode] = useState(false);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { 
@@ -43,14 +45,23 @@ const Body = () => {
   }, [isTimedMode, isTimeUp, startTimer]);
 
   return (
-    <div className="body">
-      <div className="intro">
-        Flex your lexicographical skills in this simple word game!
+    <div className="app-body">
+      <div className="bottom-space">
+        <button className="button-link" onClick={() => setShowInstructions(!showInstructions)} type="submit">
+          {`How to play ${showInstructions ? '-' : '+'}`}
+        </button>
+        {showInstructions &&
+          <>
+            <div className="intro">
+              Flex your lexicographical skills in this simple word game!
+            </div>
+            <div className="intro">
+              Enter as many words as you can that contain the following letters in consecutive order.
+            </div>
+          </>
+        }
       </div>
-      <div className="intro">
-        Enter as many words as you can that contain the following letters in consecutive order:
-      </div>
-      {fetched ? <p className='three-gram'>{threeGram}</p> : <p className="three-gram">...</p>}
+      <div className='three-gram'>{fetched ? `${threeGram}` : '...'}</div>
       <span className='flex'>
         <p className="right-space"><b>Word Count:</b></p>
         <p className="columbia word-count">{wordCount}</p>
@@ -85,10 +96,10 @@ const Body = () => {
           setScore(0);
           setWordCount(0);
           setIsTimeUp(false);
-          setSecondsLeft(60);
+          setSecondsLeft(120);
           setShowFoundWords(true);
         }}>
-          {isTimedMode ? 'Play without timer' : 'Play timed mode'}
+          {isTimedMode ? 'Untimed mode' : 'Timed mode'}
         </button>
         <button 
           className="sm-button right-space" 
@@ -105,7 +116,7 @@ const Body = () => {
           setShowFoundWords(true);
           setWordCount(0);
           setIsTimeUp(false);
-          setSecondsLeft(60);
+          setSecondsLeft(120);
         }}>
           Replay
         </button>
@@ -113,7 +124,7 @@ const Body = () => {
       {isTimedMode && 
         <span className="flex">
           <p className="right-space"><b>Time left:</b></p>
-          <p>{`00:${secondsLeft < 10 ? '0' : ''}${secondsLeft}`}</p>
+          <p>{getTime(secondsLeft)}</p>
         </span>
       }
       {showFoundWords ? <FoundWords /> : <SolutionWords solutions={solutions} />}

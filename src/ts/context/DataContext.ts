@@ -25,7 +25,7 @@ export const DataContext = createContext<DataContent>({
   fetched: false,
   foundWords: [],
   score: 0,
-  secondsLeft: 60,
+  secondsLeft: 120,
   threeGram: '',
   wordCount: 0,
   words: [],
