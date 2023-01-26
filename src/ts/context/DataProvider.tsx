@@ -4,13 +4,14 @@ import { DataContext } from "./DataContext";
 // @ts-expect-error not TS
 import dictionary from '../../txt/dictionary.txt';
 import { DataReducer } from "./DataReducer";
-import { ADD_FOUND_WORD, SET_FETCHED, SET_SCORE, SET_THREE_GRAM, SET_WORDS, SET_WORD_COUNT } from "./ActionTypes";
+import { ADD_FOUND_WORD, CLEAR_FOUND_WORDS, SET_FETCHED, SET_SCORE, SET_SECONDS_LEFT, SET_THREE_GRAM, SET_WORDS, SET_WORD_COUNT } from "./ActionTypes";
 import { getRandomInt } from "../utils/getRandomInt";
 
 const initialState = {
   fetched: false,
   foundWords: [],
   score: 0,
+  secondsLeft: 60,
   threeGram: '',
   wordCount: 0,
   words: [],
@@ -23,12 +24,20 @@ export const DataProvider = ({ children }: { children: ReactElement }): ReactEle
     dispatch({ type: ADD_FOUND_WORD, word, score });
   }, []);
 
+  const clearFoundWords = useCallback(() => {
+    dispatch({ type: CLEAR_FOUND_WORDS });
+  }, []);
+
   const setFetched = useCallback((fetched: boolean) => {
     dispatch({ type: SET_FETCHED, value: fetched });
   }, []);
 
   const setScore = useCallback((score: number) => {
     dispatch({ type: SET_SCORE, value: score });
+  }, []);
+
+  const setSecondsLeft = useCallback((secondsLeft: number) => {
+    dispatch({ type: SET_SECONDS_LEFT, value: secondsLeft });
   }, []);
 
   const setThreeGram = useCallback((threeGram: string) => {
@@ -66,12 +75,15 @@ export const DataProvider = ({ children }: { children: ReactElement }): ReactEle
     fetched: state.fetched,
     foundWords: state.foundWords,
     score: state.score,
+    secondsLeft: state.secondsLeft,
     threeGram: state.threeGram,
     wordCount: state.wordCount,
     words: state.words,
     addFoundWord,
+    clearFoundWords,
     setFetched,
     setScore,
+    setSecondsLeft,
     setThreeGram,
     setWordCount,
     setWords,

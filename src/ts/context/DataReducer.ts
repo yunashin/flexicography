@@ -1,12 +1,14 @@
 import { Reducer } from "react";
 
-import { ADD_FOUND_WORD, SET_FETCHED, SET_SCORE, SET_THREE_GRAM, SET_WORDS, SET_WORD_COUNT } from "./ActionTypes";
+import { ADD_FOUND_WORD, CLEAR_FOUND_WORDS, SET_FETCHED, SET_SCORE, SET_SECONDS_LEFT, SET_THREE_GRAM, SET_WORDS, SET_WORD_COUNT } from "./ActionTypes";
 import { DataState } from "./DataContext";
 
 export type DataAction =
  | { type: 'ADD_FOUND_WORD'; word: string; score: number; }
+ | { type: 'CLEAR_FOUND_WORDS' }
  | { type: 'SET_FETCHED'; value: boolean; }
  | { type: 'SET_SCORE'; value: number; }
+ | { type: 'SET_SECONDS_LEFT', value: number; }
  | { type: 'SET_THREE_GRAM'; value: string; }
  | { type: 'SET_WORD_COUNT'; value: number; }
  | { type: 'SET_WORDS'; value: string[]; };
@@ -21,6 +23,12 @@ export const DataReducer: Reducer<DataState, DataAction> = (
         foundWords: [{ word: action.word, score: action.score }, ...state.foundWords],
       }
     }
+    case CLEAR_FOUND_WORDS: {
+      return {
+        ...state,
+        foundWords: [],
+      }
+    }
     case SET_FETCHED: {
       return {
         ...state,
@@ -31,6 +39,12 @@ export const DataReducer: Reducer<DataState, DataAction> = (
       return {
         ...state,
         score: action.value,
+      }
+    }
+    case SET_SECONDS_LEFT: {
+      return {
+        ...state,
+        secondsLeft: action.value,
       }
     }
     case SET_THREE_GRAM: {

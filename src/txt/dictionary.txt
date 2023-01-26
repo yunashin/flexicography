@@ -24456,6 +24456,7 @@ haiti
 haitian
 haitians
 hake
+halal
 halation
 halberd
 halberds
@@ -39599,6 +39600,9 @@ pocketing
 pockets
 pod
 podia
+podiatrist
+podiatrists
+podiatry
 podium
 pods
 poe
@@ -42307,6 +42311,8 @@ rapprochement
 raps
 rapt
 raptly
+raptor
+raptors
 raptorial
 rapture
 raptures
