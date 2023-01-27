@@ -4,17 +4,19 @@ const FoundWords = () => {
   const { foundWords } = useDataContext();
 
   return (
-    <>
+    <div className="top-space">
       {foundWords.length > 0 && (
-        <p><b>Found words</b></p>
+        <div>
+          <b>Found words</b>
+        </div>
       )}
-      {foundWords.map(foundWord => 
+      {foundWords.map((foundWord) => (
         <p className="found-word">
           {`${foundWord.word} (+${foundWord.score})`}
         </p>
-      )}
-    </>
+      ))}
+    </div>
   );
-}
+};
 
 export default FoundWords;

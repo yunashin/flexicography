@@ -2,6 +2,9 @@
   --BACKGROUND: #280a37;
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
+  --FONT: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
+    "Helvetica Neue", "Oxygen", "Cantarell", sans-serif;
+  --BODY_FONT_SIZE: calc(10px + 2vmin);
 }
 
 .app {
@@ -15,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(20px + 2vmin);
-  font-family: 'Zapfino';
+  font-family: "Zapfino";
   color: white;
 }
 
@@ -27,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     font-size: calc(20px + 2vmin);
-    font-family: 'Zapfino';
+    font-family: "Zapfino";
     color: white;
   }
 }
@@ -50,7 +53,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: var(--BODY_FONT_SIZE);
   color: white;
   overflow-y: scroll;
 }
@@ -63,7 +66,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(7px + 2vmin);
+    font-size: var(--BODY_FONT_SIZE);
     color: white;
   }
 }
@@ -83,7 +86,7 @@
   border: none;
   padding: 0;
   color: var(--BUTTON);
-  font-family: 'Helvetica Neue';
+  font-family: var(--FONT);
   font-size: 18px;
 }
 
@@ -93,12 +96,13 @@
     border: none;
     padding: 0;
     color: var(--BUTTON);
-    font-family: 'Helvetica Neue';
+    font-family: var(--FONT);
     font-size: 12px;
   }
 }
 
-.button-link:hover {
+.button-link:hover,
+.button-link:disabled {
   background: none !important;
 }
 
@@ -119,6 +123,10 @@
   margin-right: 5px;
 }
 
+.top-space {
+  margin-top: 10px;
+}
+
 .bottom-space {
   margin-bottom: 10px;
 }
@@ -137,12 +145,16 @@
   }
 }
 
+.timer {
+  margin-bottom: 0px;
+}
+
 .sm-button {
   background-color: var(--BUTTON);
   border: 2px solid white;
   border-radius: 4px;
   color: var(--BACKGROUND);
-  font-family: 'Helvetica Neue';
+  font-family: var(--FONT);
   font-size: 15px;
   font-weight: 600;
   padding: 10px;
@@ -155,7 +167,7 @@
     border: 1px solid white;
     border-radius: 4px;
     color: var(--BACKGROUND);
-    font-family: 'Helvetica Neue';
+    font-family: var(--FONT);
     font-size: 10px;
     font-weight: 600;
     padding: 8px;

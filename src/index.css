@@ -2,6 +2,8 @@
   --BACKGROUND: #280a37;
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
+  --FONT: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
+    "Helvetica Neue", "Oxygen", "Cantarell", sans-serif;
 }
 
 html {
@@ -15,12 +17,12 @@ body {
   margin: 0;
   height: 100%;
   overflow-y: scroll;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
+  font-family: var(--FONT);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-input[type=text] {
+input[type="text"] {
   padding: 12px 20px;
   margin: 10px;
   box-sizing: border-box;
@@ -28,16 +30,17 @@ input[type=text] {
   border-radius: 4px;
   outline: none;
   font-size: x-large;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
+  font-family: var(--FONT);
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
   border: 4px solid var(--COLUMBIA);
   border-radius: 4px;
 }
 
 button:disabled {
-  background-color: #624b19;
+  background-color: #624b19 !important;
+  cursor: not-allowed !important;
 }
 
 button:hover {

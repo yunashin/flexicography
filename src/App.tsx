@@ -1,17 +1,14 @@
-import './App.css';
-import Body from './ts/components/Body';
+import "./App.css";
+import Body from "./ts/components/Body";
 
 function App() {
-
   return (
     <div className="app">
       <header className="app-header">
-        <p>
-          flexicography
-        </p>
+        <p>flexicography</p>
       </header>
       <Body />
-      <footer className='app-footer'></footer>
+      <footer className="app-footer"></footer>
     </div>
   );
 }
