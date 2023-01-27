@@ -95,12 +95,25 @@ const DailyPuzzle = () => {
           Start
         </button>
         <button
-          className="sm-button"
+          className="sm-button right-space"
           disabled={!isTimeUp}
           onClick={() => setShowFoundWords(!showFoundWords)}
         >
           {showFoundWords ? "Show all solutions" : "Show found words"}
         </button>
+        {isTimeUp && (
+          <button
+            className="sm-button"
+            onClick={async () => {
+              await navigator.clipboard.writeText(
+                `https://yunashin.github.io/flexicography \nLetters: ${dailyThreeGram} \nWord count: ${dailyWordCount} \nScore: ${dailyScore}`
+              );
+              alert("Copied results to clipboard!");
+            }}
+          >
+            Share results
+          </button>
+        )}
       </span>
       <div className="bottom-space">
         <span className="flex">
