@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 
 export interface DataState {
   dailyThreeGram: string;
+  dailyFoundWords: { word: string; score: number }[];
   dailyScore: number;
   dailyWordCount: number;
   fetched: boolean;
@@ -16,6 +17,7 @@ export interface DataState {
 }
 
 export interface DataContent extends DataState {
+  addDailyFoundWord: (word: string, score: number) => void;
   addFoundWord: (word: string, score: number) => void;
   clearFoundWords: () => void;
   setDailyThreeGram: (threeGram: string) => void;
@@ -32,6 +34,7 @@ export interface DataContent extends DataState {
 
 export const DataContext = createContext<DataContent>({
   dailyThreeGram: "",
+  dailyFoundWords: [],
   dailyScore: 0,
   dailyWordCount: 0,
   fetched: false,
@@ -43,6 +46,7 @@ export const DataContext = createContext<DataContent>({
   threeGram: "",
   wordCount: 0,
   words: [],
+  addDailyFoundWord: () => {},
   addFoundWord: () => {},
   clearFoundWords: () => {},
   setDailyThreeGram: () => {},

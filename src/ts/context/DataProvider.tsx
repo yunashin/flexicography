@@ -5,6 +5,7 @@ import { DataContext } from "./DataContext";
 import dictionary from "../../txt/dictionary.txt";
 import { DataReducer } from "./DataReducer";
 import {
+  ADD_DAILY_FOUND_WORD,
   ADD_FOUND_WORD,
   CLEAR_FOUND_WORDS,
   SET_DAILY_SCORE_AND_WORD_COUNT,
@@ -22,6 +23,7 @@ import { getThreeGram } from "../utils/threeGramHelpers";
 import { useGetDailyThreeGram } from "../utils/dailyThreeGramHelpers";
 
 const initialState = {
+  dailyFoundWords: [],
   dailyThreeGram: "",
   dailyScore: 0,
   dailyWordCount: 0,
@@ -42,6 +44,10 @@ export const DataProvider = ({
   children: ReactElement;
 }): ReactElement => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
+
+  const addDailyFoundWord = useCallback((word: string, score: number) => {
+    dispatch({ type: ADD_DAILY_FOUND_WORD, word, score });
+  }, []);
 
   const addFoundWord = useCallback((word: string, score: number) => {
     dispatch({ type: ADD_FOUND_WORD, word, score });
@@ -123,6 +129,7 @@ export const DataProvider = ({
   }, [dailyThreeGram, setDailyThreeGram, state.dailyThreeGram, state.fetched]);
 
   const data = {
+    dailyFoundWords: state.dailyFoundWords,
     dailyThreeGram: state.dailyThreeGram,
     dailyScore: state.dailyScore,
     dailyWordCount: state.dailyWordCount,
@@ -135,6 +142,7 @@ export const DataProvider = ({
     threeGram: state.threeGram,
     wordCount: state.wordCount,
     words: state.words,
+    addDailyFoundWord,
     addFoundWord,
     clearFoundWords,
     setDailyThreeGram,

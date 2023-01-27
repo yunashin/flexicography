@@ -10,16 +10,16 @@ const DailyPuzzle = () => {
   const [input, setInput] = useState("");
   const [showFoundWords, setShowFoundWords] = useState(true);
   const {
+    dailyFoundWords,
     dailyThreeGram,
     dailyScore,
     dailyWordCount,
     fetched,
-    foundWords,
     isTimeUp,
     secondsLeft,
     startedTimer,
     words,
-    addFoundWord,
+    addDailyFoundWord,
     setDailyScoreAndWordCount,
     setIsTimeUp,
     setSecondsLeft,
@@ -67,7 +67,9 @@ const DailyPuzzle = () => {
           const foundWord = value.toLowerCase();
           if (
             solutions.includes(foundWord) &&
-            !foundWords.some((wordAndScore) => wordAndScore.word === foundWord)
+            !dailyFoundWords.some(
+              (wordAndScore) => wordAndScore.word === foundWord
+            )
           ) {
             const { totalScore, wordScore } = generateScore(
               dailyScore,
@@ -75,7 +77,7 @@ const DailyPuzzle = () => {
             );
             setInput("");
             setDailyScoreAndWordCount(totalScore, dailyWordCount + 1);
-            addFoundWord(foundWord, wordScore);
+            addDailyFoundWord(foundWord, wordScore);
           } else {
             setInput(value);
           }
@@ -117,9 +119,9 @@ const DailyPuzzle = () => {
         </button>
       </div>
       {showFoundWords ? (
-        <FoundWords />
+        <FoundWords isDailyPuzzle={true} />
       ) : (
-        <SolutionWords solutions={solutions} />
+        <SolutionWords isDailyPuzzle={true} solutions={solutions} />
       )}
     </>
   );

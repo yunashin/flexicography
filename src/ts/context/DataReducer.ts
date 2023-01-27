@@ -1,6 +1,7 @@
 import { Reducer } from "react";
 
 import {
+  ADD_DAILY_FOUND_WORD,
   ADD_FOUND_WORD,
   CLEAR_FOUND_WORDS,
   SET_DAILY_SCORE_AND_WORD_COUNT,
@@ -17,6 +18,7 @@ import {
 import { DataState } from "./DataContext";
 
 export type DataAction =
+  | { type: "ADD_DAILY_FOUND_WORD"; word: string; score: number }
   | { type: "ADD_FOUND_WORD"; word: string; score: number }
   | { type: "CLEAR_FOUND_WORDS" }
   | { type: "SET_DAILY_THREE_GRAM"; value: string }
@@ -35,6 +37,15 @@ export const DataReducer: Reducer<DataState, DataAction> = (
   action: DataAction
 ): DataState => {
   switch (action.type) {
+    case ADD_DAILY_FOUND_WORD: {
+      return {
+        ...state,
+        dailyFoundWords: [
+          { word: action.word, score: action.score },
+          ...state.dailyFoundWords,
+        ],
+      };
+    }
     case ADD_FOUND_WORD: {
       return {
         ...state,

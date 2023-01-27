@@ -1,8 +1,14 @@
 import { useDataContext } from "../context/DataContext";
 import { generateScore } from "../utils/generateScore";
 
-const SolutionWords = ({ solutions }: { solutions: string[] }) => {
-  const { foundWords } = useDataContext();
+const SolutionWords = ({
+  isDailyPuzzle,
+  solutions,
+}: {
+  isDailyPuzzle?: boolean;
+  solutions: string[];
+}) => {
+  const { dailyFoundWords, foundWords } = useDataContext();
   let totalScore = 0;
   const wordsAndScores = solutions
     .map((solution) => {
@@ -25,7 +31,8 @@ const SolutionWords = ({ solutions }: { solutions: string[] }) => {
         <p className="columbia">{totalScore}</p>
       </span>
       {wordsAndScores.map((solution) => {
-        const solutionFound = foundWords.some(
+        const words = isDailyPuzzle ? dailyFoundWords : foundWords;
+        const solutionFound = words.some(
           (foundWord) => foundWord.word === solution.word
         );
         return (

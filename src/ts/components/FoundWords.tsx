@@ -1,16 +1,18 @@
 import { useDataContext } from "../context/DataContext";
 
-const FoundWords = () => {
-  const { foundWords } = useDataContext();
+const FoundWords = ({ isDailyPuzzle }: { isDailyPuzzle?: boolean }) => {
+  const { dailyFoundWords, foundWords } = useDataContext();
+
+  const words = isDailyPuzzle ? dailyFoundWords : foundWords;
 
   return (
     <div className="top-space">
-      {foundWords.length > 0 && (
+      {words.length > 0 && (
         <div>
           <b>Found words</b>
         </div>
       )}
-      {foundWords.map((foundWord) => (
+      {words.map((foundWord) => (
         <p className="found-word">
           {`${foundWord.word} (+${foundWord.score})`}
         </p>
