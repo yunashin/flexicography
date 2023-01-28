@@ -24,10 +24,8 @@ const HowToPlay = () => {
       </div>
       <div id="instructions">
         <div className="intro">
-          Flex your lexicographical skills in this simple word game!
-        </div>
-        <div className="intro">
-          Enter as many words as you can that contain the following letters in
+          Flex your lexicographical skills in this simple word game! Enter as
+          many words as you can that contain the following letters in
           consecutive order.
         </div>
       </div>

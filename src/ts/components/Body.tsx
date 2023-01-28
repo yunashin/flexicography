@@ -19,7 +19,7 @@ const Body = () => {
       <div className="bottom-space">
         <span className="flex">
           <button
-            className="sm-button right-space"
+            className="lg-button right-space"
             disabled={isDailyPuzzle}
             onClick={() => {
               setContent("dailyPuzzle");
@@ -28,7 +28,7 @@ const Body = () => {
             Daily puzzle
           </button>
           <button
-            className="sm-button right-space"
+            className="lg-button right-space"
             disabled={isFreePlay}
             onClick={() => {
               setContent("freePlay");
@@ -40,7 +40,7 @@ const Body = () => {
             Free play
           </button>
           <button
-            className="sm-button"
+            className="lg-button"
             disabled={isScoreboard}
             onClick={() => {
               setContent("scoreboard");

@@ -1,9 +1,25 @@
+import { useMemo } from "react";
+
 import { useDataContext } from "../context/DataContext";
+import { sortFoundWordsByScore } from "../utils/threeGramHelpers";
 
-const FoundWords = ({ isDailyPuzzle }: { isDailyPuzzle?: boolean }) => {
-  const { dailyFoundWords, foundWords } = useDataContext();
+const FoundWords = ({
+  isDailyPuzzle,
+  isFreePlayTimeUp,
+}: {
+  isDailyPuzzle?: boolean;
+  isFreePlayTimeUp?: boolean;
+}) => {
+  const { dailyFoundWords, foundWords, isTimeUp } = useDataContext();
 
-  const words = isDailyPuzzle ? dailyFoundWords : foundWords;
+  const words = useMemo(() => {
+    if (isDailyPuzzle) {
+      return isTimeUp
+        ? sortFoundWordsByScore(dailyFoundWords)
+        : dailyFoundWords;
+    }
+    return isFreePlayTimeUp ? sortFoundWordsByScore(foundWords) : foundWords;
+  }, [dailyFoundWords, foundWords, isDailyPuzzle, isFreePlayTimeUp, isTimeUp]);
 
   return (
     <div className="top-space">

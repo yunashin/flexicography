@@ -6,3 +6,8 @@ type DailyPuzzleScore = {
 };
 
 export type DailyPuzzleScores = DailyPuzzleScore[];
+
+export type FoundWord = {
+  score: number;
+  word: string;
+};

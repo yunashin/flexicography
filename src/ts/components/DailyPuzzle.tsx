@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+import { startOfToday } from "date-fns/esm";
 import { useCallback, useEffect, useState } from "react";
 
 import { useDataContext } from "../context/DataContext";
@@ -23,6 +25,7 @@ const DailyPuzzle = () => {
     addDailyFoundWord,
     clearDailyFoundWords,
     setDailyScoreAndWordCount,
+    setFetched,
     setIsTimeUp,
     setSecondsLeft,
     setStartedTimer,
@@ -31,6 +34,15 @@ const DailyPuzzle = () => {
   const solutions: string[] = words.filter((word) =>
     word.includes(dailyThreeGram.toLowerCase())
   );
+
+  const todaysDate = startOfToday();
+  const formattedToday = format(startOfToday(), "MMM d, yyyy");
+
+  useEffect(() => {
+    if (formattedToday !== today) {
+      setFetched(false);
+    }
+  }, [formattedToday, setFetched, today]);
 
   const storeHighScore = useCallback(() => {
     let dailyPuzzleScores: DailyPuzzleScores = JSON.parse(
@@ -91,6 +103,7 @@ const DailyPuzzle = () => {
   return (
     <>
       <div className="three-gram">{fetched ? `${dailyThreeGram}` : "..."}</div>
+      <div className="sm-text">{format(todaysDate, "EEEE, MMMM do")}</div>
       <span className="flex">
         <p className="right-space">
           <b>Word count:</b>

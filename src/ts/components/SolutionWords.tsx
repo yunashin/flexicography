@@ -1,16 +1,17 @@
 import { useDataContext } from "../context/DataContext";
 import { generateScore } from "../utils/generateScore";
+import { sortFoundWordsByScore } from "../utils/threeGramHelpers";
 
 const SolutionWords = ({ solutions }: { solutions: string[] }) => {
   const { foundWords } = useDataContext();
   let totalScore = 0;
-  const wordsAndScores = solutions
-    .map((solution) => {
+  const wordsAndScores = sortFoundWordsByScore(
+    solutions.map((solution) => {
       const { wordScore } = generateScore(0, solution);
       totalScore += wordScore;
       return { word: solution, score: wordScore };
     })
-    .sort((solutionA, solutionB) => solutionB.score - solutionA.score);
+  );
 
   return (
     <>

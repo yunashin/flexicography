@@ -82,7 +82,7 @@ const FreeModeBody = () => {
         value={input}
         disabled={isTimeUp || !showFoundWords}
       />
-      <span className="flex">
+      <span className="flex bottom-space">
         <button
           className="sm-button right-space"
           onClick={() => {
@@ -139,7 +139,7 @@ const FreeModeBody = () => {
         </div>
       )}
       {showFoundWords ? (
-        <FoundWords />
+        <FoundWords isFreePlayTimeUp={isTimeUp} />
       ) : (
         <SolutionWords solutions={solutions} />
       )}

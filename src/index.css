@@ -1,8 +1,14 @@
 :root {
   --BACKGROUND: #280a37;
-  --BUTTON: #f1b533;
+  --BUTTON: #ecc266;
+  --BUTTON_DISABLED: #866723;
+  --BUTTON_HOVER: #d5a132;
   --COLUMBIA: #7fdef8;
   --FONT: "Lato", sans-serif;
+  --BODY_FONT_SIZE: calc(10px + 2vmin);
+  --SMALL_TEXT_SIZE: calc(7px + 2vmin);
+  --BODY_FONT_COLOR: white;
+  --SHADOW: #a030d8;
 }
 
 html {
@@ -25,7 +31,7 @@ input[type="text"] {
   padding: 12px 20px;
   margin: 10px;
   box-sizing: border-box;
-  border: 2px solid white;
+  border: 2px solid var(--BODY_FONT_COLOR);
   border-radius: 4px;
   outline: none;
   font-size: x-large;
@@ -44,11 +50,11 @@ input[type="text"]:focus {
 }
 
 button:disabled {
-  background-color: #624b19 !important;
+  background-color: var(--BUTTON_DISABLED) !important;
   cursor: not-allowed !important;
 }
 
 button:hover {
-  background-color: #d5a132;
+  background-color: var(--BUTTON_HOVER);
   cursor: pointer;
 }
