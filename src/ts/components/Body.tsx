@@ -47,8 +47,8 @@ const Body = () => {
             Scoreboard
           </button>
         </span>
-        {!isScoreboard && <HowToPlay />}
       </div>
+      {!isScoreboard && <HowToPlay />}
       {isDailyPuzzle && <DailyPuzzle />}
       {isFreePlay && <FreePlayBody />}
       {isScoreboard && <Scoreboard />}

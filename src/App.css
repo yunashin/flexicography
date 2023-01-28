@@ -3,7 +3,7 @@
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
   --FONT: "Barlow", sans-serif;
-  --BODY_FONT_SIZE: calc(10px + 2vmin);
+  --BODY_FONT_SIZE: calc(5px + 2vmin);
 }
 
 .app {
@@ -17,9 +17,9 @@
   flex-direction: column;
   align-items: center;
   font-family: "Dancing Script", cursive;
-  font-size: calc(70px + 2vmin);
+  font-size: calc(50px + 2vmin);
   text-shadow: #a030d8 2px 5px;
-  margin: 40px 0px;
+  margin: 30px 0px;
   color: white;
 }
 
@@ -69,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: var(--BODY_FONT_SIZE);
+    font-size: calc(10px + 2vmin);
     color: white;
   }
 }
@@ -98,7 +98,7 @@
   padding: 0;
   color: var(--BUTTON);
   font-family: var(--FONT);
-  font-size: 18px;
+  font-size: calc(2px + 2vmin);
 }
 
 @media (max-width: 600px) {
@@ -108,7 +108,7 @@
     padding: 0;
     color: var(--BUTTON);
     font-family: var(--FONT);
-    font-size: 12px;
+    font-size: calc(5px + 2vmin);
   }
 }
 
@@ -167,7 +167,7 @@
   border-radius: 4px;
   color: var(--BACKGROUND);
   font-family: var(--FONT);
-  font-size: 20px;
+  font-size: var(--BODY_FONT_SIZE);
   font-weight: 600;
   padding: 10px;
   margin-top: 10px;
@@ -180,7 +180,7 @@
     border-radius: 4px;
     color: var(--BACKGROUND);
     font-family: var(--FONT);
-    font-size: 12px;
+    font-size: var(--BODY_FONT_SIZE);
     font-weight: 600;
     padding: 8px;
     margin-top: 5px;
