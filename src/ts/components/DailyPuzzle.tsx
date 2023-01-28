@@ -31,11 +31,12 @@ const DailyPuzzle = () => {
     word.includes(dailyThreeGram.toLowerCase())
   );
 
+  const today = format(startOfToday(), "MMM d, yyyy");
+
   const storeHighScore = useCallback(() => {
     let dailyPuzzleScores: DailyPuzzleScores = JSON.parse(
       window.localStorage.getItem("dailyPuzzleScores") || "[]"
     );
-    const today = format(startOfToday(), "MMM d, yyyy");
     const todaysScore = {
       day: today,
       letters: dailyThreeGram,
@@ -67,7 +68,7 @@ const DailyPuzzle = () => {
         JSON.stringify(dailyPuzzleScores)
       );
     }
-  }, [dailyScore, dailyThreeGram, dailyWordCount]);
+  }, [dailyScore, dailyThreeGram, dailyWordCount, today]);
 
   const startTimer = useCallback(
     () =>
@@ -152,7 +153,7 @@ const DailyPuzzle = () => {
             className="sm-button"
             onClick={async () => {
               await navigator.clipboard.writeText(
-                `https://yunashin.github.io/flexicography \nLetters: ${dailyThreeGram} \nWord count: ${dailyWordCount} \nScore: ${dailyScore}`
+                `https://yunashin.github.io/flexicography \n${today} \nLetters: ${dailyThreeGram} \nWord count: ${dailyWordCount} \nScore: ${dailyScore}`
               );
               alert("Copied results to clipboard!");
             }}
