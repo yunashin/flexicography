@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <p>flexicography</p>
+        <div>flexicography</div>
       </header>
       <Body />
       <footer className="app-footer"></footer>

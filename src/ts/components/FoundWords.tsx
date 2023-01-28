@@ -13,7 +13,7 @@ const FoundWords = ({ isDailyPuzzle }: { isDailyPuzzle?: boolean }) => {
         </div>
       )}
       {words.map((foundWord) => (
-        <p className="found-word">
+        <p className="found-word" key={foundWord.word}>
           {`${foundWord.word} (+${foundWord.score})`}
         </p>
       ))}

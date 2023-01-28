@@ -3,6 +3,7 @@ import { Reducer } from "react";
 import {
   ADD_DAILY_FOUND_WORD,
   ADD_FOUND_WORD,
+  CLEAR_DAILY_FOUND_WORDS,
   CLEAR_FOUND_WORDS,
   SET_DAILY_SCORE_AND_WORD_COUNT,
   SET_DAILY_THREE_GRAM,
@@ -20,11 +21,12 @@ import { DataState } from "./DataContext";
 export type DataAction =
   | { type: "ADD_DAILY_FOUND_WORD"; word: string; score: number }
   | { type: "ADD_FOUND_WORD"; word: string; score: number }
+  | { type: "CLEAR_DAILY_FOUND_WORDS" }
   | { type: "CLEAR_FOUND_WORDS" }
   | { type: "SET_DAILY_THREE_GRAM"; value: string }
   | { type: "SET_DAILY_SCORE_AND_WORD_COUNT"; score: number; wordCount: number }
   | { type: "SET_FETCHED"; value: boolean }
-  | { type: "SET_IS_TIME_UP" }
+  | { type: "SET_IS_TIME_UP"; value: boolean }
   | { type: "SET_SCORE"; value: number }
   | { type: "SET_SECONDS_LEFT"; value: number }
   | { type: "SET_STARTED_TIMER" }
@@ -55,6 +57,14 @@ export const DataReducer: Reducer<DataState, DataAction> = (
         ],
       };
     }
+    case CLEAR_DAILY_FOUND_WORDS: {
+      return {
+        ...state,
+        dailyFoundWords: [],
+        dailyScore: 0,
+        dailyWordCount: 0,
+      };
+    }
     case CLEAR_FOUND_WORDS: {
       return {
         ...state,
@@ -83,7 +93,7 @@ export const DataReducer: Reducer<DataState, DataAction> = (
     case SET_IS_TIME_UP: {
       return {
         ...state,
-        isTimeUp: true,
+        isTimeUp: action.value,
       };
     }
     case SET_SCORE: {

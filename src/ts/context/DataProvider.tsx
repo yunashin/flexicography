@@ -7,6 +7,7 @@ import { DataReducer } from "./DataReducer";
 import {
   ADD_DAILY_FOUND_WORD,
   ADD_FOUND_WORD,
+  CLEAR_DAILY_FOUND_WORDS,
   CLEAR_FOUND_WORDS,
   SET_DAILY_SCORE_AND_WORD_COUNT,
   SET_DAILY_THREE_GRAM,
@@ -53,6 +54,10 @@ export const DataProvider = ({
     dispatch({ type: ADD_FOUND_WORD, word, score });
   }, []);
 
+  const clearDailyFoundWords = useCallback(() => {
+    dispatch({ type: CLEAR_DAILY_FOUND_WORDS });
+  }, []);
+
   const clearFoundWords = useCallback(() => {
     dispatch({ type: CLEAR_FOUND_WORDS });
   }, []);
@@ -72,8 +77,8 @@ export const DataProvider = ({
     dispatch({ type: SET_FETCHED, value: fetched });
   }, []);
 
-  const setIsTimeUp = useCallback(() => {
-    dispatch({ type: SET_IS_TIME_UP });
+  const setIsTimeUp = useCallback((isTimeUp: boolean) => {
+    dispatch({ type: SET_IS_TIME_UP, value: isTimeUp });
   }, []);
 
   const setScore = useCallback((score: number) => {
@@ -144,6 +149,7 @@ export const DataProvider = ({
     words: state.words,
     addDailyFoundWord,
     addFoundWord,
+    clearDailyFoundWords,
     clearFoundWords,
     setDailyThreeGram,
     setDailyScoreAndWordCount,

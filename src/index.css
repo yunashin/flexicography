@@ -2,8 +2,7 @@
   --BACKGROUND: #280a37;
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
-  --FONT: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
-    "Helvetica Neue", "Oxygen", "Cantarell", sans-serif;
+  --FONT: "Barlow", sans-serif;
 }
 
 html {
@@ -31,6 +30,12 @@ input[type="text"] {
   outline: none;
   font-size: x-large;
   font-family: var(--FONT);
+}
+
+@media (max-width: 600px) {
+  input[type="text"] {
+    font-size: large;
+  }
 }
 
 input[type="text"]:focus {

@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
+import { format, startOfToday } from "date-fns";
 
 import { useDataContext } from "../context/DataContext";
+import { DailyPuzzleScores } from "../types/types";
 import { generateScore } from "../utils/generateScore";
 import { getTime } from "../utils/getTime";
 import FoundWords from "./FoundWords";
-import SolutionWords from "./SolutionWords";
 
 const DailyPuzzle = () => {
   const [input, setInput] = useState("");
-  const [showFoundWords, setShowFoundWords] = useState(true);
   const {
     dailyFoundWords,
     dailyThreeGram,
@@ -20,6 +20,7 @@ const DailyPuzzle = () => {
     startedTimer,
     words,
     addDailyFoundWord,
+    clearDailyFoundWords,
     setDailyScoreAndWordCount,
     setIsTimeUp,
     setSecondsLeft,
@@ -30,16 +31,55 @@ const DailyPuzzle = () => {
     word.includes(dailyThreeGram.toLowerCase())
   );
 
+  const storeHighScore = useCallback(() => {
+    let dailyPuzzleScores: DailyPuzzleScores = JSON.parse(
+      window.localStorage.getItem("dailyPuzzleScores") || "[]"
+    );
+    const today = format(startOfToday(), "MMM d, yyyy");
+    const todaysScore = {
+      day: today,
+      letters: dailyThreeGram,
+      score: dailyScore,
+      wordCount: dailyWordCount,
+    };
+    if (dailyPuzzleScores.length === 0) {
+      dailyPuzzleScores = [todaysScore];
+      window.localStorage.setItem(
+        "dailyPuzzleScores",
+        JSON.stringify(dailyPuzzleScores)
+      );
+    } else if (
+      dailyPuzzleScores[0].letters === dailyThreeGram &&
+      dailyPuzzleScores[0].score < dailyScore
+    ) {
+      dailyPuzzleScores = [
+        todaysScore,
+        ...dailyPuzzleScores.slice(1, dailyPuzzleScores.length),
+      ];
+      window.localStorage.setItem(
+        "dailyPuzzleScores",
+        JSON.stringify(dailyPuzzleScores)
+      );
+    } else if (dailyPuzzleScores[0].letters !== dailyThreeGram) {
+      dailyPuzzleScores = [todaysScore, ...dailyPuzzleScores];
+      window.localStorage.setItem(
+        "dailyPuzzleScores",
+        JSON.stringify(dailyPuzzleScores)
+      );
+    }
+  }, [dailyScore, dailyThreeGram, dailyWordCount]);
+
   const startTimer = useCallback(
     () =>
       setTimeout(() => {
         if (secondsLeft === 0) {
-          setIsTimeUp();
+          setIsTimeUp(true);
+          storeHighScore();
         } else {
           setSecondsLeft(secondsLeft - 1);
         }
       }, 1000),
-    [secondsLeft, setIsTimeUp, setSecondsLeft]
+    [secondsLeft, setIsTimeUp, setSecondsLeft, storeHighScore]
   );
 
   useEffect(() => {
@@ -53,7 +93,7 @@ const DailyPuzzle = () => {
       <div className="three-gram">{fetched ? `${dailyThreeGram}` : "..."}</div>
       <span className="flex">
         <p className="right-space">
-          <b>Word Count:</b>
+          <b>Word count:</b>
         </p>
         <p className="columbia word-count">{dailyWordCount}</p>
         <p className="right-space">
@@ -94,13 +134,19 @@ const DailyPuzzle = () => {
         >
           Start
         </button>
-        <button
-          className="sm-button right-space"
-          disabled={!isTimeUp}
-          onClick={() => setShowFoundWords(!showFoundWords)}
-        >
-          {showFoundWords ? "Show all solutions" : "Show found words"}
-        </button>
+        {isTimeUp && (
+          <button
+            className="sm-button right-space"
+            disabled={!isTimeUp}
+            onClick={() => {
+              clearDailyFoundWords();
+              setIsTimeUp(false);
+              setSecondsLeft(300);
+            }}
+          >
+            Play again
+          </button>
+        )}
         {isTimeUp && (
           <button
             className="sm-button"
@@ -125,17 +171,14 @@ const DailyPuzzle = () => {
           className="button-link"
           disabled={isTimeUp}
           onClick={() => {
-            setIsTimeUp();
+            setIsTimeUp(true);
+            storeHighScore();
           }}
         >
           Give up?
         </button>
       </div>
-      {showFoundWords ? (
-        <FoundWords isDailyPuzzle={true} />
-      ) : (
-        <SolutionWords isDailyPuzzle={true} solutions={solutions} />
-      )}
+      <FoundWords isDailyPuzzle={true} />
     </>
   );
 };

@@ -1,19 +1,18 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import { useDataContext } from "../context/DataContext";
 import DailyPuzzle from "./DailyPuzzle";
 import FreePlayBody from "./FreePlayBody";
+import HowToPlay from "./HowToPlay";
+import Scoreboard from "./Scoreboard";
 
 const Body = () => {
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [isDailyPuzzle, setIsDailyPuzzle] = useState(true);
+  const [content, setContent] = useState("dailyPuzzle");
+  const isDailyPuzzle = content === "dailyPuzzle";
+  const isFreePlay = content === "freePlay";
+  const isScoreboard = content === "scoreboard";
 
   const { clearFoundWords } = useDataContext();
-
-  const toggleDailyPuzzle = useCallback(() => {
-    setIsDailyPuzzle(!isDailyPuzzle);
-    clearFoundWords();
-  }, [clearFoundWords, isDailyPuzzle]);
 
   return (
     <div className="app-body">
@@ -22,40 +21,37 @@ const Body = () => {
           <button
             className="sm-button right-space"
             disabled={isDailyPuzzle}
-            onClick={toggleDailyPuzzle}
+            onClick={() => {
+              setContent("dailyPuzzle");
+            }}
           >
             Daily puzzle
           </button>
           <button
-            className="sm-button"
-            disabled={!isDailyPuzzle}
-            onClick={toggleDailyPuzzle}
+            className="sm-button right-space"
+            disabled={isFreePlay}
+            onClick={() => {
+              setContent("freePlay");
+              clearFoundWords();
+            }}
           >
             Free play
           </button>
-        </span>
-        <div>
           <button
-            className="button-link"
-            onClick={() => setShowInstructions(!showInstructions)}
-            type="submit"
+            className="sm-button"
+            disabled={isScoreboard}
+            onClick={() => {
+              setContent("scoreboard");
+            }}
           >
-            {`How to play ${showInstructions ? "-" : "+"}`}
+            Scoreboard
           </button>
-        </div>
-        {showInstructions && (
-          <>
-            <div className="intro">
-              Flex your lexicographical skills in this simple word game!
-            </div>
-            <div className="intro">
-              Enter as many words as you can that contain the following letters
-              in consecutive order.
-            </div>
-          </>
-        )}
+        </span>
+        {!isScoreboard && <HowToPlay />}
       </div>
-      {isDailyPuzzle ? <DailyPuzzle /> : <FreePlayBody />}
+      {isDailyPuzzle && <DailyPuzzle />}
+      {isFreePlay && <FreePlayBody />}
+      {isScoreboard && <Scoreboard />}
     </div>
   );
 };

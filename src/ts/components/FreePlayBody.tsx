@@ -53,7 +53,7 @@ const FreeModeBody = () => {
       <div className="three-gram">{fetched ? `${threeGram}` : "..."}</div>
       <span className="flex">
         <p className="right-space">
-          <b>Word Count:</b>
+          <b>Word count:</b>
         </p>
         <p className="columbia word-count">{wordCount}</p>
         <p className="right-space">

@@ -2,8 +2,7 @@
   --BACKGROUND: #280a37;
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
-  --FONT: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
-    "Helvetica Neue", "Oxygen", "Cantarell", sans-serif;
+  --FONT: "Barlow", sans-serif;
   --BODY_FONT_SIZE: calc(10px + 2vmin);
 }
 
@@ -13,24 +12,28 @@
 
 .app-header {
   background-color: var(--BACKGROUND);
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(20px + 2vmin);
-  font-family: "Zapfino", "Monotype Corsiva";
+  font-family: "Dancing Script", cursive;
+  font-size: calc(70px + 2vmin);
+  text-shadow: #a030d8 2px 5px;
+  margin: 40px 0px;
   color: white;
 }
 
 @media (max-width: 600px) {
   .app-header {
     background-color: var(--BACKGROUND);
-    min-height: 20vh;
+    min-height: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: calc(20px + 2vmin);
-    font-family: "Zapfino";
+    font-family: "Dancing Script", cursive;
+    font-size: calc(35px + 2vmin);
+    text-shadow: #a030d8 2px 3px;
+    margin: 20px 0px;
     color: white;
   }
 }
@@ -81,6 +84,14 @@
   }
 }
 
+#how-to-play {
+  margin-bottom: 15px;
+}
+
+#instructions {
+  display: none;
+}
+
 .button-link {
   background: none;
   border: none;
@@ -109,6 +120,7 @@
 .three-gram {
   color: var(--COLUMBIA);
   font-size: calc(30px + 2vmin);
+  font-weight: 600;
 }
 
 .flex {
@@ -155,7 +167,7 @@
   border-radius: 4px;
   color: var(--BACKGROUND);
   font-family: var(--FONT);
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   padding: 10px;
   margin-top: 10px;
@@ -168,7 +180,7 @@
     border-radius: 4px;
     color: var(--BACKGROUND);
     font-family: var(--FONT);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     padding: 8px;
     margin-top: 5px;
