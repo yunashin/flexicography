@@ -13,7 +13,7 @@
   font-family: "Dancing Script", cursive;
   font-size: calc(60px + 2vmin);
   text-shadow: var(--SHADOW) 2px 5px;
-  margin: 40px 0px;
+  margin: 30px 0px;
   color: var(--BODY_FONT_COLOR);
 }
 
@@ -70,7 +70,6 @@
 
 .intro {
   width: 700px;
-  margin-bottom: 5px;
 }
 
 @media (max-width: 600px) {
@@ -86,6 +85,7 @@
 
 #instructions {
   display: none;
+  margin-bottom: 5px;
 }
 
 .button-link {
