@@ -9,6 +9,7 @@ import FoundWords from "./FoundWords";
 
 const DailyPuzzle = () => {
   const [input, setInput] = useState("");
+  const [copiedResults, setCopiedResults] = useState(false);
   const {
     dailyFoundWords,
     dailyThreeGram,
@@ -143,6 +144,7 @@ const DailyPuzzle = () => {
               clearDailyFoundWords();
               setIsTimeUp(false);
               setSecondsLeft(300);
+              setCopiedResults(false);
             }}
           >
             Play again
@@ -155,10 +157,11 @@ const DailyPuzzle = () => {
               await navigator.clipboard.writeText(
                 `https://yunashin.github.io/flexicography \n${today} \nLetters: ${dailyThreeGram} \nWord count: ${dailyWordCount} \nScore: ${dailyScore}`
               );
-              alert("Copied results to clipboard!");
+              setCopiedResults(true);
             }}
+            disabled={copiedResults}
           >
-            Share results
+            {copiedResults ? "Copied" : "Share results"}
           </button>
         )}
       </span>
