@@ -1,4 +1,4 @@
-import { addDays, startOfToday } from "date-fns";
+import { addDays, format, startOfToday } from "date-fns";
 
 import { getThreeOrMoreLetterWords } from "./threeGramHelpers";
 
@@ -21,6 +21,7 @@ export const useGetDailyThreeGram = (words: string[]) => {
     : [];
 
   const today = startOfToday();
+  const formattedDate = format(today, "MMM d, yyyy");
   const index = getIndex(today);
   const dailyWord =
     threeOrMoreLetterWords[index % threeOrMoreLetterWords.length];
@@ -32,5 +33,5 @@ export const useGetDailyThreeGram = (words: string[]) => {
     ? dailyWord.slice(dailyWordIndex, dailyWordIndex + 3).toUpperCase()
     : "";
 
-  return dailyThreeGram;
+  return { dailyThreeGram, today: formattedDate };
 };

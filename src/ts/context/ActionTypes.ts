@@ -10,5 +10,6 @@ export const SET_SCORE = "SET_SCORE";
 export const SET_SECONDS_LEFT = "SET_SECONDS_LEFT";
 export const SET_STARTED_TIMER = "SET_STARTED_TIMER";
 export const SET_THREE_GRAM = "SET_THREE_GRAM";
+export const SET_TODAY = "SET_TODAY";
 export const SET_WORD_COUNT = "SET_WORD_COUNT";
 export const SET_WORDS = "SET_WORDS";

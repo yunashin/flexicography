@@ -17,6 +17,7 @@ import {
   SET_SECONDS_LEFT,
   SET_STARTED_TIMER,
   SET_THREE_GRAM,
+  SET_TODAY,
   SET_WORDS,
   SET_WORD_COUNT,
 } from "./ActionTypes";
@@ -35,6 +36,7 @@ const initialState = {
   secondsLeft: 300,
   startedTimer: false,
   threeGram: "",
+  today: "",
   wordCount: 0,
   words: [],
 };
@@ -97,6 +99,10 @@ export const DataProvider = ({
     dispatch({ type: SET_THREE_GRAM, value: threeGram });
   }, []);
 
+  const setToday = useCallback((today: string) => {
+    dispatch({ type: SET_TODAY, value: today });
+  }, []);
+
   const setWordCount = useCallback((wordCount: number) => {
     dispatch({ type: SET_WORD_COUNT, value: wordCount });
   }, []);
@@ -126,12 +132,20 @@ export const DataProvider = ({
     }
   }, [setThreeGram, state.fetched, state.words]);
 
-  const dailyThreeGram = useGetDailyThreeGram(state.words);
+  const { dailyThreeGram, today } = useGetDailyThreeGram(state.words);
   useEffect(() => {
     if (state.dailyThreeGram === "" && state.fetched) {
       setDailyThreeGram(dailyThreeGram);
+      setToday(today);
     }
-  }, [dailyThreeGram, setDailyThreeGram, state.dailyThreeGram, state.fetched]);
+  }, [
+    dailyThreeGram,
+    setDailyThreeGram,
+    setToday,
+    state.dailyThreeGram,
+    state.fetched,
+    today,
+  ]);
 
   const data = {
     dailyFoundWords: state.dailyFoundWords,
@@ -145,6 +159,7 @@ export const DataProvider = ({
     secondsLeft: state.secondsLeft,
     startedTimer: state.startedTimer,
     threeGram: state.threeGram,
+    today: state.today,
     wordCount: state.wordCount,
     words: state.words,
     addDailyFoundWord,
@@ -159,6 +174,7 @@ export const DataProvider = ({
     setSecondsLeft,
     setStartedTimer,
     setThreeGram,
+    setToday,
     setWordCount,
     setWords,
   };

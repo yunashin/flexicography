@@ -13,6 +13,7 @@ import {
   SET_SECONDS_LEFT,
   SET_STARTED_TIMER,
   SET_THREE_GRAM,
+  SET_TODAY,
   SET_WORDS,
   SET_WORD_COUNT,
 } from "./ActionTypes";
@@ -31,6 +32,7 @@ export type DataAction =
   | { type: "SET_SECONDS_LEFT"; value: number }
   | { type: "SET_STARTED_TIMER" }
   | { type: "SET_THREE_GRAM"; value: string }
+  | { type: "SET_TODAY"; value: string }
   | { type: "SET_WORD_COUNT"; value: number }
   | { type: "SET_WORDS"; value: string[] };
 
@@ -118,6 +120,12 @@ export const DataReducer: Reducer<DataState, DataAction> = (
       return {
         ...state,
         threeGram: action.value,
+      };
+    }
+    case SET_TODAY: {
+      return {
+        ...state,
+        today: action.value,
       };
     }
     case SET_WORD_COUNT: {

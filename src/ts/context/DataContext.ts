@@ -12,6 +12,7 @@ export interface DataState {
   score: number;
   startedTimer: boolean;
   threeGram: string;
+  today: string;
   wordCount: number;
   words: string[];
 }
@@ -29,6 +30,7 @@ export interface DataContent extends DataState {
   setScore: (score: number) => void;
   setStartedTimer: () => void;
   setThreeGram: (threeGram: string) => void;
+  setToday: (today: string) => void;
   setWordCount: (wordCount: number) => void;
   setWords: (words: string[]) => void;
 }
@@ -45,6 +47,7 @@ export const DataContext = createContext<DataContent>({
   secondsLeft: 300,
   startedTimer: false,
   threeGram: "",
+  today: "",
   wordCount: 0,
   words: [],
   addDailyFoundWord: () => {},
@@ -59,6 +62,7 @@ export const DataContext = createContext<DataContent>({
   setSecondsLeft: () => {},
   setStartedTimer: () => {},
   setThreeGram: () => {},
+  setToday: () => {},
   setWordCount: () => {},
   setWords: () => {},
 });

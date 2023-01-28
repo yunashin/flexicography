@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { format, startOfToday } from "date-fns";
 
 import { useDataContext } from "../context/DataContext";
 import { DailyPuzzleScores } from "../types/types";
@@ -19,6 +18,7 @@ const DailyPuzzle = () => {
     isTimeUp,
     secondsLeft,
     startedTimer,
+    today,
     words,
     addDailyFoundWord,
     clearDailyFoundWords,
@@ -31,8 +31,6 @@ const DailyPuzzle = () => {
   const solutions: string[] = words.filter((word) =>
     word.includes(dailyThreeGram.toLowerCase())
   );
-
-  const today = format(startOfToday(), "MMM d, yyyy");
 
   const storeHighScore = useCallback(() => {
     let dailyPuzzleScores: DailyPuzzleScores = JSON.parse(
@@ -51,7 +49,7 @@ const DailyPuzzle = () => {
         JSON.stringify(dailyPuzzleScores)
       );
     } else if (
-      dailyPuzzleScores[0].letters === dailyThreeGram &&
+      dailyPuzzleScores[0].day === today &&
       dailyPuzzleScores[0].score < dailyScore
     ) {
       dailyPuzzleScores = [
@@ -62,7 +60,7 @@ const DailyPuzzle = () => {
         "dailyPuzzleScores",
         JSON.stringify(dailyPuzzleScores)
       );
-    } else if (dailyPuzzleScores[0].letters !== dailyThreeGram) {
+    } else if (dailyPuzzleScores[0].day !== today) {
       dailyPuzzleScores = [todaysScore, ...dailyPuzzleScores];
       window.localStorage.setItem(
         "dailyPuzzleScores",
