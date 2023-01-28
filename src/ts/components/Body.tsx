@@ -12,7 +12,7 @@ const Body = () => {
   const isFreePlay = content === "freePlay";
   const isScoreboard = content === "scoreboard";
 
-  const { clearFoundWords } = useDataContext();
+  const { clearFoundWords, setScore, setWordCount } = useDataContext();
 
   return (
     <div className="app-body">
@@ -33,6 +33,8 @@ const Body = () => {
             onClick={() => {
               setContent("freePlay");
               clearFoundWords();
+              setWordCount(0);
+              setScore(0);
             }}
           >
             Free play

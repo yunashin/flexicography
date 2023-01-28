@@ -2,8 +2,8 @@
   --BACKGROUND: #280a37;
   --BUTTON: #f1b533;
   --COLUMBIA: #7fdef8;
-  --FONT: "Barlow", sans-serif;
-  --BODY_FONT_SIZE: calc(5px + 2vmin);
+  --FONT: "Lato", sans-serif;
+  --BODY_FONT_SIZE: calc(10px + 2vmin);
 }
 
 .app {
@@ -17,9 +17,9 @@
   flex-direction: column;
   align-items: center;
   font-family: "Dancing Script", cursive;
-  font-size: calc(50px + 2vmin);
+  font-size: calc(60px + 2vmin);
   text-shadow: #a030d8 2px 5px;
-  margin: 30px 0px;
+  margin: 40px 0px;
   color: white;
 }
 
@@ -69,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: var(--BODY_FONT_SIZE);
     color: white;
   }
 }
@@ -180,7 +180,7 @@
     border-radius: 4px;
     color: var(--BACKGROUND);
     font-family: var(--FONT);
-    font-size: var(--BODY_FONT_SIZE);
+    font-size: calc(5px + 2vmin);
     font-weight: 600;
     padding: 8px;
     margin-top: 5px;
