@@ -12,7 +12,6 @@
   align-items: center;
   font-family: "Dancing Script", cursive;
   font-size: calc(60px + 2vmin);
-  text-shadow: var(--SHADOW) 2px 5px;
   margin: 30px 0px;
   color: var(--BODY_FONT_COLOR);
 }
@@ -26,7 +25,6 @@
     align-items: center;
     font-family: "Dancing Script", cursive;
     font-size: calc(35px + 2vmin);
-    text-shadow: #a030d8 2px 3px;
     margin: 20px 0px;
     color: var(--BODY_FONT_COLOR);
   }
