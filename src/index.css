@@ -1,12 +1,10 @@
 :root {
-  --BACKGROUND: #19191b;
+  --BACKGROUND: #1a191b;
   --BUTTON_LINK: #ecc266;
   --BUTTON_LINK_DISABLED: #a9822e;
-  /* --BUTTON_DISABLED: #a9822e;
-  --BUTTON_HOVER: #d5a132; */
-  --BUTTON: #6f6e6d;
-  --BUTTON_DISABLED: #3c3c3c;
-  --BUTTON_HOVER: #646362;
+  --BUTTON: #434342;
+  --BUTTON_DISABLED: #282727;
+  --BUTTON_HOVER: #807f7f;
   --GREEN: #59c46d;
   --FONT: "Lato", sans-serif;
   --BODY_FONT_SIZE: calc(10px + 2vmin);
@@ -53,12 +51,13 @@ input[type="text"]:focus {
 }
 
 button {
+  background-color: var(--BUTTON);
   color: white;
 }
 
 button:disabled {
   background-color: var(--BUTTON_DISABLED) !important;
-  color: #bfbebd;
+  color: #c9c7c5;
   cursor: not-allowed !important;
 }
 

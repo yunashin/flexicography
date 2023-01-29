@@ -12,6 +12,7 @@ const FreeModeBody = () => {
   const [secondsLeft, setSecondsLeft] = useState(300);
   const [isTimedMode, setIsTimedMode] = useState(false);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [startedTimer, setStartedTimer] = useState(false);
   const {
     fetched,
     foundWords,
@@ -43,10 +44,10 @@ const FreeModeBody = () => {
   );
 
   useEffect(() => {
-    if (isTimedMode && !isTimeUp) {
+    if (isTimedMode && startedTimer && !isTimeUp) {
       startTimer();
     }
-  }, [isTimedMode, isTimeUp, startTimer]);
+  }, [isTimedMode, isTimeUp, startedTimer, startTimer]);
 
   return (
     <>
@@ -77,6 +78,9 @@ const FreeModeBody = () => {
           } else {
             setInput(value);
           }
+          if (isTimedMode && !startedTimer) {
+            setStartedTimer(true);
+          }
         }}
         type="text"
         value={input}
@@ -93,6 +97,8 @@ const FreeModeBody = () => {
             setIsTimeUp(false);
             setSecondsLeft(300);
             setShowFoundWords(true);
+            setStartedTimer(false);
+            setInput("");
           }}
         >
           {isTimedMode ? "Free mode" : "Timed mode"}
@@ -115,6 +121,8 @@ const FreeModeBody = () => {
             setWordCount(0);
             setIsTimeUp(false);
             setSecondsLeft(300);
+            setStartedTimer(false);
+            setInput("");
           }}
         >
           New game

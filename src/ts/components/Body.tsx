@@ -16,7 +16,7 @@ const Body = () => {
 
   return (
     <div className="app-body">
-      <div className="bottom-space">
+      <div className="bottom-margin">
         <span className="flex">
           <button
             className="lg-button right-space"

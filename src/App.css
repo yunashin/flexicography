@@ -12,7 +12,7 @@
   align-items: center;
   font-family: "Dancing Script", cursive;
   font-size: calc(60px + 2vmin);
-  margin: 30px 0px;
+  padding: 30px 0px 10px;
   color: var(--BODY_FONT_COLOR);
 }
 
@@ -25,7 +25,7 @@
     align-items: center;
     font-family: "Dancing Script", cursive;
     font-size: calc(35px + 2vmin);
-    margin: 20px 0px;
+    padding: 20px 0px 10px;
     color: var(--BODY_FONT_COLOR);
   }
 }
@@ -141,12 +141,15 @@
   margin-bottom: 10px;
 }
 
+.bottom-margin {
+  margin-bottom: 20px;
+}
+
 .word-count {
   margin-right: 40px;
 }
 
 .found-words-line {
-  color: var(--BODY_FONT_COLOR);
   width: 600px;
 }
 
@@ -170,7 +173,6 @@
 }
 
 .sm-button {
-  background-color: var(--BUTTON);
   border-radius: 60px;
   border: none;
   font-family: var(--FONT);
@@ -189,7 +191,6 @@
 }
 
 .lg-button {
-  background-color: var(--BUTTON);
   border-radius: 60px;
   border: none;
   font-family: var(--FONT);
@@ -205,4 +206,9 @@
     padding: 8px 16px;
     margin-top: 5px;
   }
+}
+
+.lg-button:disabled {
+  background-color: white !important;
+  color: black;
 }

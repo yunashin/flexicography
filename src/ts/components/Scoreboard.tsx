@@ -12,7 +12,7 @@ const Scoreboard = () => {
       <div>
         {dailyPuzzleScores.map((item) => {
           return (
-            <div className="bottom-space" key={item.day}>
+            <div className="bottom-margin" key={item.day}>
               <div className="right-space">{`${item.day}: ${item.letters}`}</div>
               <span className="flex">
                 <div className="right-space">
@@ -20,7 +20,7 @@ const Scoreboard = () => {
                 </div>
                 <div className="word-count">{item.wordCount}</div>
                 <div className="right-space">
-                  <b>High score:</b>
+                  <b>Score:</b>
                 </div>
                 <div>{item.score}</div>
               </span>
