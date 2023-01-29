@@ -134,7 +134,7 @@ export const DataProvider = ({
 
   const { dailyThreeGram, today } = useGetDailyThreeGram(state.words);
   useEffect(() => {
-    if (state.dailyThreeGram === "" && state.fetched) {
+    if (state.dailyThreeGram !== dailyThreeGram && state.fetched) {
       setDailyThreeGram(dailyThreeGram);
       setToday(today);
     }
