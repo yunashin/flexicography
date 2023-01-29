@@ -1,9 +1,13 @@
 :root {
-  --BACKGROUND: #280a37;
-  --BUTTON: #ecc266;
-  --BUTTON_DISABLED: #866723;
-  --BUTTON_HOVER: #d5a132;
-  --COLUMBIA: #7fdef8;
+  --BACKGROUND: #19191b;
+  --BUTTON_LINK: #ecc266;
+  --BUTTON_LINK_DISABLED: #a9822e;
+  /* --BUTTON_DISABLED: #a9822e;
+  --BUTTON_HOVER: #d5a132; */
+  --BUTTON: #6f6e6d;
+  --BUTTON_DISABLED: #3c3c3c;
+  --BUTTON_HOVER: #646362;
+  --GREEN: #59c46d;
   --FONT: "Lato", sans-serif;
   --BODY_FONT_SIZE: calc(10px + 2vmin);
   --SMALL_TEXT_SIZE: calc(7px + 2vmin);
@@ -44,12 +48,17 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border: 4px solid var(--COLUMBIA);
+  border: 4px solid white;
   border-radius: 4px;
+}
+
+button {
+  color: white;
 }
 
 button:disabled {
   background-color: var(--BUTTON_DISABLED) !important;
+  color: #bfbebd;
   cursor: not-allowed !important;
 }
 

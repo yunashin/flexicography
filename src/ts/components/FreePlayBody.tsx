@@ -55,11 +55,11 @@ const FreeModeBody = () => {
         <p className="right-space">
           <b>Word count:</b>
         </p>
-        <p className="columbia word-count">{wordCount}</p>
+        <p className="word-count">{wordCount}</p>
         <p className="right-space">
           <b>Score:</b>
         </p>
-        <p className="columbia">{score}</p>
+        <p>{score}</p>
       </span>
       <input
         autoFocus={true}

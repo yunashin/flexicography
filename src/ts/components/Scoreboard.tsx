@@ -18,11 +18,11 @@ const Scoreboard = () => {
                 <div className="right-space">
                   <b>Word count:</b>
                 </div>
-                <div className="columbia word-count">{item.wordCount}</div>
+                <div className="word-count">{item.wordCount}</div>
                 <div className="right-space">
                   <b>High score:</b>
                 </div>
-                <div className="columbia">{item.score}</div>
+                <div>{item.score}</div>
               </span>
             </div>
           );

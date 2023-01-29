@@ -90,7 +90,7 @@
   background: none;
   border: none;
   padding: 0;
-  color: var(--BUTTON);
+  color: var(--BUTTON_LINK);
   font-family: var(--FONT);
   font-size: calc(2px + 2vmin);
 }
@@ -107,11 +107,10 @@
 }
 
 .button-link:disabled {
-  color: var(--BUTTON_DISABLED);
+  color: var(--BUTTON_LINK_DISABLED);
 }
 
 .three-gram {
-  color: var(--COLUMBIA);
   font-size: calc(30px + 2vmin);
   font-weight: 600;
 }
@@ -120,8 +119,8 @@
   display: inline-flex;
 }
 
-.columbia {
-  color: var(--COLUMBIA);
+.green {
+  color: var(--GREEN);
 }
 
 .right-space {
@@ -146,6 +145,17 @@
   margin-right: 40px;
 }
 
+.found-words-line {
+  color: var(--BODY_FONT_COLOR);
+  width: 600px;
+}
+
+@media (max-width: 600px) {
+  .found-words-line {
+    width: 250px;
+  }
+}
+
 .found-word {
   font-size: var(--SMALL_TEXT_SIZE);
 }
@@ -161,33 +171,31 @@
 
 .sm-button {
   background-color: var(--BUTTON);
-  border-radius: 12px;
+  border-radius: 60px;
   border: none;
-  color: var(--BACKGROUND);
   font-family: var(--FONT);
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 10px 12px;
+  padding: 15px 30px;
   margin-top: 10px;
 }
 
 @media (max-width: 600px) {
   .sm-button {
     font-size: 12px;
-    padding: 8px;
+    padding: 8px 16px;
     margin-top: 5px;
   }
 }
 
 .lg-button {
   background-color: var(--BUTTON);
-  border-radius: 12px;
+  border-radius: 60px;
   border: none;
-  color: var(--BACKGROUND);
   font-family: var(--FONT);
-  font-size: var(--BODY_FONT_SIZE);
+  font-size: 18px;
   font-weight: 600;
-  padding: 10px 30px;
+  padding: 15px 40px;
   margin-top: 10px;
 }
 

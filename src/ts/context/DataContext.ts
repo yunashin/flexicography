@@ -28,7 +28,7 @@ export interface DataContent extends DataState {
   setIsTimeUp: (isTimeUp: boolean) => void;
   setSecondsLeft: (secondsLeft: number) => void;
   setScore: (score: number) => void;
-  setStartedTimer: () => void;
+  setStartedTimer: (startedTimer: boolean) => void;
   setThreeGram: (threeGram: string) => void;
   setToday: (today: string) => void;
   setWordCount: (wordCount: number) => void;

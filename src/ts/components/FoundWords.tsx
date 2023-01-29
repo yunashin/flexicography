@@ -23,11 +23,7 @@ const FoundWords = ({
 
   return (
     <div className="top-space">
-      {words.length > 0 && (
-        <div>
-          <b>Found words</b>
-        </div>
-      )}
+      {words.length > 0 && <hr className="found-words-line" />}
       {words.map((foundWord) => (
         <p className="found-word" key={foundWord.word}>
           {`${foundWord.word} (+${foundWord.score})`}

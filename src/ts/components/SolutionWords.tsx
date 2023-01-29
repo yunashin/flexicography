@@ -19,18 +19,18 @@ const SolutionWords = ({ solutions }: { solutions: string[] }) => {
         <p className="right-space">
           <b>Word Count:</b>
         </p>
-        <p className="columbia word-count">{solutions.length}</p>
+        <p className="word-count">{solutions.length}</p>
         <p className="right-space">
           <b>Score:</b>
         </p>
-        <p className="columbia">{totalScore}</p>
+        <p>{totalScore}</p>
       </span>
       {wordsAndScores.map((solution) => {
         const solutionFound = foundWords.some(
           (foundWord) => foundWord.word === solution.word
         );
         return (
-          <p className={`found-word ${solutionFound && "columbia"}`}>
+          <p className={`found-word ${solutionFound && "green"}`}>
             {`${solution.word} (+${solution.score})`}
           </p>
         );

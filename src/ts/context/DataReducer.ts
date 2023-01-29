@@ -30,7 +30,7 @@ export type DataAction =
   | { type: "SET_IS_TIME_UP"; value: boolean }
   | { type: "SET_SCORE"; value: number }
   | { type: "SET_SECONDS_LEFT"; value: number }
-  | { type: "SET_STARTED_TIMER" }
+  | { type: "SET_STARTED_TIMER"; value: boolean }
   | { type: "SET_THREE_GRAM"; value: string }
   | { type: "SET_TODAY"; value: string }
   | { type: "SET_WORD_COUNT"; value: number }
@@ -113,7 +113,7 @@ export const DataReducer: Reducer<DataState, DataAction> = (
     case SET_STARTED_TIMER: {
       return {
         ...state,
-        startedTimer: true,
+        startedTimer: action.value,
       };
     }
     case SET_THREE_GRAM: {

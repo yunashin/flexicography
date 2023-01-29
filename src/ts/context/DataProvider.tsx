@@ -91,8 +91,8 @@ export const DataProvider = ({
     dispatch({ type: SET_SECONDS_LEFT, value: secondsLeft });
   }, []);
 
-  const setStartedTimer = useCallback(() => {
-    dispatch({ type: SET_STARTED_TIMER });
+  const setStartedTimer = useCallback((startedTimer: boolean) => {
+    dispatch({ type: SET_STARTED_TIMER, value: startedTimer });
   }, []);
 
   const setThreeGram = useCallback((threeGram: string) => {

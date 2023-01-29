@@ -35,7 +35,6 @@ const DailyPuzzle = () => {
     word.includes(dailyThreeGram.toLowerCase())
   );
 
-  const todaysDate = startOfToday();
   const formattedToday = format(startOfToday(), "MMM d, yyyy");
 
   useEffect(() => {
@@ -103,16 +102,15 @@ const DailyPuzzle = () => {
   return (
     <>
       <div className="three-gram">{fetched ? `${dailyThreeGram}` : "..."}</div>
-      <div className="sm-text">{format(todaysDate, "EEEE, MMMM do")}</div>
       <span className="flex">
         <p className="right-space">
           <b>Word count:</b>
         </p>
-        <p className="columbia word-count">{dailyWordCount}</p>
+        <p className="word-count">{dailyWordCount}</p>
         <p className="right-space">
           <b>Score:</b>
         </p>
-        <p className="columbia">{dailyScore}</p>
+        <p>{dailyScore}</p>
       </span>
       <input
         autoFocus={true}
@@ -134,19 +132,15 @@ const DailyPuzzle = () => {
           } else {
             setInput(value);
           }
+          if (!startedTimer) {
+            setStartedTimer(true);
+          }
         }}
         type="text"
         value={input}
-        disabled={isTimeUp || !startedTimer}
+        disabled={isTimeUp}
       />
       <span className="flex">
-        <button
-          className="sm-button right-space"
-          disabled={startedTimer}
-          onClick={() => setStartedTimer()}
-        >
-          Start
-        </button>
         {isTimeUp && (
           <button
             className="sm-button right-space"
@@ -156,6 +150,7 @@ const DailyPuzzle = () => {
               setIsTimeUp(false);
               setSecondsLeft(300);
               setCopiedResults(false);
+              setStartedTimer(false);
             }}
           >
             Play again
