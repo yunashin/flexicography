@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/flexicography/static/css/main.8a061258.css",
-    "main.js": "/flexicography/static/js/main.9409bdd6.js",
+    "main.css": "/flexicography/static/css/main.e4af14f8.css",
+    "main.js": "/flexicography/static/js/main.2167dfb5.js",
     "static/js/787.a3a7135a.chunk.js": "/flexicography/static/js/787.a3a7135a.chunk.js",
-    "static/media/dictionary.txt": "/flexicography/static/media/dictionary.8e5d31795c2c1d81d09a.txt",
+    "static/media/dictionary.txt": "/flexicography/static/media/dictionary.5ca7079a16ef11307028.txt",
     "index.html": "/flexicography/index.html",
-    "main.8a061258.css.map": "/flexicography/static/css/main.8a061258.css.map",
-    "main.9409bdd6.js.map": "/flexicography/static/js/main.9409bdd6.js.map",
+    "main.e4af14f8.css.map": "/flexicography/static/css/main.e4af14f8.css.map",
+    "main.2167dfb5.js.map": "/flexicography/static/js/main.2167dfb5.js.map",
     "787.a3a7135a.chunk.js.map": "/flexicography/static/js/787.a3a7135a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a061258.css",
-    "static/js/main.9409bdd6.js"
+    "static/css/main.e4af14f8.css",
+    "static/js/main.2167dfb5.js"
   ]
 }
