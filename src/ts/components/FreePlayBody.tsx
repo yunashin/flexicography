@@ -14,6 +14,7 @@ const FreeModeBody = () => {
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [startedTimer, setStartedTimer] = useState(false);
   const {
+    dailyThreeGram,
     fetched,
     foundWords,
     score,
@@ -42,6 +43,12 @@ const FreeModeBody = () => {
       }, 1000),
     [secondsLeft, setSecondsLeft]
   );
+
+  useEffect(() => {
+    if (threeGram === dailyThreeGram) {
+      setFetched(false);
+    }
+  }, [dailyThreeGram, setFetched, threeGram]);
 
   useEffect(() => {
     if (isTimedMode && startedTimer && !isTimeUp) {

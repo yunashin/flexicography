@@ -8,6 +8,7 @@ export const SET_FETCHED = "SET_FETCHED";
 export const SET_IS_TIME_UP = "SET_IS_TIME_UP";
 export const SET_SCORE = "SET_SCORE";
 export const SET_SECONDS_LEFT = "SET_SECONDS_LEFT";
+export const SET_SHOW_MAX_SCORE = "SET_SHOW_MAX_SCORE";
 export const SET_STARTED_TIMER = "SET_STARTED_TIMER";
 export const SET_THREE_GRAM = "SET_THREE_GRAM";
 export const SET_TODAY = "SET_TODAY";

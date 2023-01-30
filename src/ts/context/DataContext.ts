@@ -8,8 +8,9 @@ export interface DataState {
   fetched: boolean;
   foundWords: { word: string; score: number }[];
   isTimeUp: boolean;
-  secondsLeft: number;
   score: number;
+  secondsLeft: number;
+  showMaxScore: boolean;
   startedTimer: boolean;
   threeGram: string;
   today: string;
@@ -28,6 +29,7 @@ export interface DataContent extends DataState {
   setIsTimeUp: (isTimeUp: boolean) => void;
   setSecondsLeft: (secondsLeft: number) => void;
   setScore: (score: number) => void;
+  setShowMaxScore: (showMaxScore: boolean) => void;
   setStartedTimer: (startedTimer: boolean) => void;
   setThreeGram: (threeGram: string) => void;
   setToday: (today: string) => void;
@@ -44,6 +46,7 @@ export const DataContext = createContext<DataContent>({
   foundWords: [],
   isTimeUp: false,
   score: 0,
+  showMaxScore: false,
   secondsLeft: 300,
   startedTimer: false,
   threeGram: "",
@@ -60,6 +63,7 @@ export const DataContext = createContext<DataContent>({
   setIsTimeUp: () => {},
   setScore: () => {},
   setSecondsLeft: () => {},
+  setShowMaxScore: () => {},
   setStartedTimer: () => {},
   setThreeGram: () => {},
   setToday: () => {},

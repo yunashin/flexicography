@@ -11,6 +11,7 @@ import {
   SET_IS_TIME_UP,
   SET_SCORE,
   SET_SECONDS_LEFT,
+  SET_SHOW_MAX_SCORE,
   SET_STARTED_TIMER,
   SET_THREE_GRAM,
   SET_TODAY,
@@ -30,6 +31,7 @@ export type DataAction =
   | { type: "SET_IS_TIME_UP"; value: boolean }
   | { type: "SET_SCORE"; value: number }
   | { type: "SET_SECONDS_LEFT"; value: number }
+  | { type: "SET_SHOW_MAX_SCORE"; value: boolean }
   | { type: "SET_STARTED_TIMER"; value: boolean }
   | { type: "SET_THREE_GRAM"; value: string }
   | { type: "SET_TODAY"; value: string }
@@ -108,6 +110,12 @@ export const DataReducer: Reducer<DataState, DataAction> = (
       return {
         ...state,
         secondsLeft: action.value,
+      };
+    }
+    case SET_SHOW_MAX_SCORE: {
+      return {
+        ...state,
+        showMaxScore: action.value,
       };
     }
     case SET_STARTED_TIMER: {

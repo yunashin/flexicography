@@ -77,8 +77,9 @@
   }
 }
 
-#how-to-play {
-  margin-bottom: 15px;
+#maximum-score {
+  display: none;
+  margin-bottom: 10px;
 }
 
 #instructions {
@@ -116,7 +117,7 @@
 }
 
 .flex {
-  display: inline-flex;
+  display: inline-flex !important;
 }
 
 .green {

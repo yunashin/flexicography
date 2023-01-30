@@ -15,6 +15,7 @@ import {
   SET_IS_TIME_UP,
   SET_SCORE,
   SET_SECONDS_LEFT,
+  SET_SHOW_MAX_SCORE,
   SET_STARTED_TIMER,
   SET_THREE_GRAM,
   SET_TODAY,
@@ -34,6 +35,7 @@ const initialState = {
   isTimeUp: false,
   score: 0,
   secondsLeft: 300,
+  showMaxScore: false,
   startedTimer: false,
   threeGram: "",
   today: "",
@@ -89,6 +91,10 @@ export const DataProvider = ({
 
   const setSecondsLeft = useCallback((secondsLeft: number) => {
     dispatch({ type: SET_SECONDS_LEFT, value: secondsLeft });
+  }, []);
+
+  const setShowMaxScore = useCallback((showMaxScore: boolean) => {
+    dispatch({ type: SET_SHOW_MAX_SCORE, value: showMaxScore });
   }, []);
 
   const setStartedTimer = useCallback((startedTimer: boolean) => {
@@ -157,6 +163,7 @@ export const DataProvider = ({
     isTimeUp: state.isTimeUp,
     score: state.score,
     secondsLeft: state.secondsLeft,
+    showMaxScore: state.showMaxScore,
     startedTimer: state.startedTimer,
     threeGram: state.threeGram,
     today: state.today,
@@ -172,6 +179,7 @@ export const DataProvider = ({
     setIsTimeUp,
     setScore,
     setSecondsLeft,
+    setShowMaxScore,
     setStartedTimer,
     setThreeGram,
     setToday,

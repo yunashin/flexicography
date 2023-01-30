@@ -1,6 +1,6 @@
 import { addDays, format, startOfToday } from "date-fns";
 
-import { getThreeOrMoreLetterWords } from "./threeGramHelpers";
+import { filterWordsByWordLength } from "./threeGramHelpers";
 
 const firstDay = new Date(2023, 0); // Jan 1, 2023
 
@@ -16,15 +16,12 @@ const getIndex = (date: Date) => {
 };
 
 export const useGetDailyThreeGram = (words: string[]) => {
-  const threeOrMoreLetterWords = words.length
-    ? getThreeOrMoreLetterWords(words)
-    : [];
+  const filteredWords = words.length ? filterWordsByWordLength(words, 7) : [];
 
   const today = startOfToday();
   const formattedDate = format(today, "MMM d, yyyy");
   const index = getIndex(today);
-  const dailyWord =
-    threeOrMoreLetterWords[index % threeOrMoreLetterWords.length];
+  const dailyWord = filteredWords[index % filteredWords.length];
   let dailyWordIndex = dailyWord ? index % dailyWord.length : 0;
   if (dailyWord && dailyWordIndex + 3 > dailyWord.length) {
     dailyWordIndex = dailyWordIndex - 3;

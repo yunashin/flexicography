@@ -1,8 +1,11 @@
 import { FoundWord } from "../types/types";
 import { getRandomInt } from "./getRandomInt";
 
-export const getThreeOrMoreLetterWords = (words: string[]) => {
-  return words.filter((word) => word.length >= 3);
+export const filterWordsByWordLength = (
+  words: string[],
+  wordLength: number
+) => {
+  return words.filter((word) => word.length >= wordLength);
 };
 
 export const sortFoundWordsByScore = (words: FoundWord[]) => {
@@ -17,7 +20,7 @@ export const sortFoundWordsByScore = (words: FoundWord[]) => {
 };
 
 export const getThreeGram = (words: string[]) => {
-  const threeOrMoreLetterWords = getThreeOrMoreLetterWords(words);
+  const threeOrMoreLetterWords = filterWordsByWordLength(words, 3);
   const randomWord =
     threeOrMoreLetterWords[
       getRandomInt(0, threeOrMoreLetterWords.length)

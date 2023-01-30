@@ -12,7 +12,8 @@ const Body = () => {
   const isFreePlay = content === "freePlay";
   const isScoreboard = content === "scoreboard";
 
-  const { clearFoundWords, setScore, setWordCount } = useDataContext();
+  const { clearFoundWords, setScore, setShowMaxScore, setWordCount } =
+    useDataContext();
 
   return (
     <div className="app-body">
@@ -23,6 +24,7 @@ const Body = () => {
             disabled={isDailyPuzzle}
             onClick={() => {
               setContent("dailyPuzzle");
+              setShowMaxScore(false);
             }}
           >
             Daily puzzle

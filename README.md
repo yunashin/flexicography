@@ -4,10 +4,10 @@ Flex your lexicographical skills in this basic word game that tests how many wor
 
 https://yunashin.github.io/flexicography
 
-## Running locally
+## Local development
 
 `$ npm start`
 
 ## Sources
 
-- [English (US) dictionary database](http://www.gwicks.net/dictionaries.htm)
+- [English words dataset](https://github.com/dwyl/english-words/blob/master/words_alpha.txt)
