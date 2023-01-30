@@ -6,27 +6,32 @@
 
 .app-header {
   background-color: var(--BACKGROUND);
-  min-height: 10vh;
+  min-height: 0.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Dancing Script", cursive;
-  font-size: calc(60px + 2vmin);
-  padding: 30px 0px 10px;
+  font-size: var(--BODY_FONT_SIZE);
+  padding: 20px 0px;
   color: var(--BODY_FONT_COLOR);
+  border-bottom: 2px solid rgb(98, 98, 98);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 @media (max-width: 600px) {
   .app-header {
     background-color: var(--BACKGROUND);
-    min-height: 5vh;
+    min-height: 0.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Dancing Script", cursive;
-    font-size: calc(35px + 2vmin);
-    padding: 20px 0px 10px;
+    font-size: calc(15px + 2vmin);
+    padding: 10px 0px;
     color: var(--BODY_FONT_COLOR);
+    border-bottom: 1px solid rgb(98, 98, 98);
   }
 }
 
@@ -51,6 +56,8 @@
   font-size: var(--BODY_FONT_SIZE);
   color: var(--BODY_FONT_COLOR);
   overflow-y: scroll;
+  position: relative;
+  margin-top: 100px;
 }
 
 @media (max-width: 600px) {
@@ -63,6 +70,7 @@
     justify-content: center;
     font-size: var(--BODY_FONT_SIZE);
     color: var(--BODY_FONT_COLOR);
+    margin-top: 60px;
   }
 }
 

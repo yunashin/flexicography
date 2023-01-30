@@ -8,7 +8,7 @@ const HowToPlay = () => {
     <>
       <div>
         <button
-          className="button-link"
+          className="button-link bottom-space"
           onClick={() => {
             setShowInstructions(!showInstructions);
             if ($("#instructions").css("display") === "none") {
