@@ -11,14 +11,11 @@
   flex-direction: column;
   align-items: center;
   font-family: "Dancing Script", cursive;
-  font-size: var(--BODY_FONT_SIZE);
+  font-size: 40px;
   padding: 20px 0px;
   color: var(--BODY_FONT_COLOR);
   border-bottom: 2px solid rgb(98, 98, 98);
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 1;
 }
 
 @media (max-width: 600px) {
@@ -57,7 +54,7 @@
   color: var(--BODY_FONT_COLOR);
   overflow-y: scroll;
   position: relative;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 @media (max-width: 600px) {
@@ -70,7 +67,6 @@
     justify-content: center;
     font-size: var(--BODY_FONT_SIZE);
     color: var(--BODY_FONT_COLOR);
-    margin-top: 60px;
   }
 }
 
