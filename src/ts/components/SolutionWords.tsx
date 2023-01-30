@@ -11,7 +11,7 @@ const SolutionWords = ({ solutions }: { solutions: string[] }) => {
       totalScore += wordScore;
       return { word: solution, score: wordScore };
     })
-  );
+  ).slice(0, 10);
 
   return (
     <>
@@ -25,6 +25,10 @@ const SolutionWords = ({ solutions }: { solutions: string[] }) => {
         </p>
         <p>{totalScore}</p>
       </span>
+      <p>
+        <b>Highest scoring words</b>
+      </p>
+      <hr className="found-words-line" />
       {wordsAndScores.map((solution) => {
         const solutionFound = foundWords.some(
           (foundWord) => foundWord.word === solution.word

@@ -60,7 +60,7 @@ const FoundWords = ({
               {showMaxScore ? "Hide maximum score" : "Show maximum score"}
             </button>
           </div>
-          <div className="green" id="maximum-score">
+          <div id="maximum-score">
             {`${maximumScore} points (${solutions.length} words)`}
           </div>
         </>

@@ -115,7 +115,7 @@ const FreeModeBody = () => {
           disabled={isTimedMode && !isTimeUp}
           onClick={() => setShowFoundWords(!showFoundWords)}
         >
-          {showFoundWords ? "Show all solutions" : "Show found words"}
+          {showFoundWords ? "Show solutions" : "Show found words"}
         </button>
         <button
           className="sm-button"
